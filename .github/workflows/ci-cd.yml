@@ -1,0 +1,46 @@
+name: Deploy React Portfolio to VPS
+
+on:
+  push:
+    branches:
+      - publish  # Trigger deployment on push to the 'publish' branch
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2️⃣ Setup Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+
+      # 3️⃣ Install dependencies & build
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      # 4️⃣ Setup SSH & deploy to VPS
+      - name: Deploy to VPS
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          VPS_IP: ${{ secrets.VPS_IP }}
+          SSH_USERNAME: ${{ secrets.SSH_USERNAME }}
+        run: |
+          echo "Setting up SSH..."
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H $VPS_IP >> ~/.ssh/known_hosts
+
+          echo "Copying build files to VPS..."
+          scp -i ~/.ssh/id_rsa -r ./build/* $SSH_USERNAME@$VPS_IP:/var/www/websites/portfolio/
+
+          echo "Restarting Nginx..."
+          ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $SSH_USERNAME@$VPS_IP "sudo systemctl restart nginx"
