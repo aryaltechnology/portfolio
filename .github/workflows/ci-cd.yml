@@ -40,7 +40,7 @@ jobs:
           ssh-keyscan -H $VPS_IP >> ~/.ssh/known_hosts
 
           echo "Copying build files to VPS..."
-          scp -i ~/.ssh/id_rsa -r ./build/* $SSH_USERNAME@$VPS_IP:/var/www/websites/portfolio/
+          scp -i ~/.ssh/id_rsa -r ./dist/* $SSH_USERNAME@$VPS_IP:/var/www/websites/portfolio/
 
           echo "Restarting Nginx..."
           ssh -i ~/.ssh/id_rsa -o StrictHostKeyChecking=no $SSH_USERNAME@$VPS_IP "sudo systemctl restart nginx"
