@@ -1,4 +1,4 @@
-import { FaMobileAlt, FaServer, FaNetworkWired, FaCogs, FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
+import { FaMobileAlt, FaServer, FaNetworkWired, FaCogs, FaLinkedin, FaGithub, FaEnvelope,FaMapMarkerAlt } from "react-icons/fa";
 
 function App() {
   return (
@@ -178,42 +178,54 @@ desc: "Mental wellness app with modular Flutter architecture, subscription manag
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-24 px-6 bg-gray-900 text-white">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          Contact
-        </h2>
+    {/* Contact */}
+<section id="contact" className="py-24 px-6 bg-gray-900 text-white">
+  <h2 className="text-3xl font-bold mb-4 text-center">
+    Contact
+  </h2>
 
-        <p className="text-center text-gray-400 mb-10 max-w-2xl mx-auto">
-          Let’s connect.
-        </p>
+  <p className="text-center text-gray-400 max-w-2xl mx-auto">
+    Let’s connect.
+  </p>
 
-        <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-          <a
-            href="mailto:roshanar.dev@gmail.com"
-            className="flex items-center gap-3 px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-200 shadow-md transition"
-          >
-            <FaEnvelope className="text-xl" /> roshanar.dev@mail.com
-          </a>
+  {/* Location */}
+  <div className="flex justify-center items-center gap-2 mt-3 mb-10 text-gray-500">
+    <FaMapMarkerAlt className="text-sm" />
+    <span className="text-sm">
+     Pokhara , Nepal 33700
+    </span>
+  </div>
 
-          <a
-            href="https://www.linkedin.com/in/roshanaryal"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 border border-gray-600 rounded-xl hover:border-white shadow-md transition"
-          >
-            <FaLinkedin className="text-xl text-blue-400" /> LinkedIn
-          </a>
+  <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+    <a
+      href="mailto:roshanar.dev@gmail.com"
+      className="flex items-center gap-3 px-6 py-3 bg-white text-black rounded-xl font-medium hover:bg-gray-200 shadow-md transition"
+    >
+      <FaEnvelope className="text-xl" />
+      roshanar.dev@gmail.com
+    </a>
 
-          <a
-            href="https://github.com/roshanaryal"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-3 px-6 py-3 border border-gray-600 rounded-xl hover:border-white shadow-md transition"
-          >
-            <FaGithub className="text-xl text-gray-400" /> GitHub
-          </a>
-        </div>
-      </section>
+    <a
+      href="https://www.linkedin.com/in/roshanaryal"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-3 px-6 py-3 border border-gray-600 rounded-xl hover:border-white shadow-md transition"
+    >
+      <FaLinkedin className="text-xl text-blue-400" />
+      LinkedIn
+    </a>
+
+    <a
+      href="https://github.com/roshanaryal"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-3 px-6 py-3 border border-gray-600 rounded-xl hover:border-white shadow-md transition"
+    >
+      <FaGithub className="text-xl text-gray-400" />
+      GitHub
+    </a>
+  </div>
+</section>
 
       {/* Footer */}
       <footer className="py-8 text-center bg-black border-t border-gray-800">
