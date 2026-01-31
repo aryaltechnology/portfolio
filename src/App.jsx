@@ -9,7 +9,7 @@ function App() {
         {/* Background gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80"></div>
 
-        <div className="max-w-6xl mx-auto flex flex-col-reverse md:flex-row items-center md:justify-between relative z-10">
+        <div className="max-w-4xl mx-auto flex flex-col-reverse md:flex-row items-center md:justify-between relative z-10">
 
           {/* Text Content */}
           <div className="flex-1 text-center md:text-left md:pr-12">
